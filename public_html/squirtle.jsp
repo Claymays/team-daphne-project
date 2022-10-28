@@ -17,9 +17,10 @@
     <br>
     <!-- Pokedex entry -->
     <p>
-        Squirtle is a Water-type Pokemon. Their weaknesses are Grass- and Electric-type Pokemons.
+        "Squirtle. This Tiny Turtle Pokémon draws its long neck into its shell to launch incredible Water attacks with amazing range and accuracy. The blasts can be quite powerful."
     </p>
-    <!-- Source: https://www.pokemon.com/us/pokedex/squirtle -->
+    <!-- Source: https://www.pokemon.com/us/pokedex/squirtle
+                https://bulbapedia.bulbagarden.net/wiki/Squirtle_(Pok%C3%A9mon)#Pok.C3.A9dex_entries_2 -->
 
 </body>
 
