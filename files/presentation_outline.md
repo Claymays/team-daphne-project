@@ -1,13 +1,27 @@
 Presentation Outline
 
 # Kue's information
-**Explain our name: Test Changes**
+**Explain our name:**
+
+    About Daphne Koller
+        Daphne Koller is an Israeli-American computer scientist and an adjunct professor at Standford. She co-founded Coursera in 2012, which is an online education platform. She recently founded insitro, which focuses on using machine learning in pharmaceutical research.
 
 **Introduce our team members. Describe our roles and skills that were brought to the team:**
 
+    Clayton Mays
+        Role:
+    Erick Reyes
+        Role:
+    Kue Xiong
+        Role:
+
 **The name of our technology/concept:**
 
+    @include Directive
+
 **Description of our technology/concept:**
+
+    The @include directive is used to include other files, such as another JSP file. As with breaking down Java code into multiple classes for organization and ease of maintanence, the @include directive allows various components to live on their own file. When something needs to be modified or debugged, only the source file has to be fingled with. This also allows the external files to be dynamic without cluttering the main JSP file.
 
 ---
 # Clayton's information
