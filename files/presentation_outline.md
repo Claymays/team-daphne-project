@@ -1,7 +1,7 @@
 Presentation Outline
 
 # Kue's information
-**Explain our name:**
+**Explain our name: Test Changes**
 
 **Introduce our team members. Describe our roles and skills that were brought to the team:**
 
