@@ -9,11 +9,11 @@ Presentation Outline
 **Introduce our team members. Describe our roles and skills that were brought to the team:**
 
     Clayton Mays
-        Role:
+        Role: Created repository and templates for code. Created charmander jsp. Recorded presentation.
     Erick Reyes
-        Role:
+        Role: Researched best practices and drawbacks. Created bulbasaur jsp. Put together presentation outline.
     Kue Xiong
-        Role:
+        Role: Researched Daphne Koller and concept. Created Squirtle jsp and CSS file for header and footer.
 
 **The name of our technology/concept:**
 
