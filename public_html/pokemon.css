@@ -1,0 +1,246 @@
+/* ---
+  General
+*/
+
+:root {
+  --color-red: #ee2c34;
+  --color-medred: #c92128;
+  --color-darkred: #a72734;
+  --color-blue: #30e2fa;
+  --color-yellow: #ffe258;
+  --color-green: #44bc1d;
+  --color-black-25: rgba(0,0,0,0.25);
+  --color-black-50: rgba(0,0,0,0.5);
+  --color-black-75: rgba(0,0,0,0.75);
+  --lights-width: 200px;
+  --mini-light-size: 20px;
+  --main-light-size: 75px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---
+  Typography
+  Style for the typography
+*/
+
+/* ---
+  Layout
+  Makes the sticky footer at the bottom, let's main content expand
+*/
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  flex: 0 0 auto;
+}
+
+#main-content {
+  flex: 1;
+}
+
+
+/* ---
+  Header
+  The header element that represents the curved area
+  of the pokedex at the top of it with the lights
+*/
+
+header {
+  position: relative;
+  display: flex;
+  align-content: center;
+  // background: linear-gradient(to bottom, var(--color-red), var(--color-medred));
+  background: var(--color-medred);
+  padding: 1em 2em;
+  border-bottom: 2px solid var(--color-black-25);
+  z-index: 2;
+}
+
+header .svg-cover {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background: var(--color-medred);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+header .svg-cover:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 296px;
+  background: blue;
+  height: 1px;
+  width: 100%;
+
+}
+
+header svg {
+  position: absolute;
+  top: calc(100% - 4px);
+  left: -2px;
+}
+
+header .title {
+  flex: 1;
+}
+
+header .title h1 {
+  margin-left: calc(var(--lights-width) * -1);
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 5px var(--color-black-25);
+}
+
+header .lights {
+  display: flex;
+  width: 200px;
+}
+
+header .main-light {
+  position: relative;
+  width: var(--main-light-size);
+  height: var(--main-light-size);
+  margin-right: 0.6em;
+  border-radius: 100%;
+  background: white;
+  border: 1px solid var(--color-black-50);
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.2);
+}
+
+header .main-light .main-light-inner {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: calc(var(--main-light-size) - 16px);
+  height: calc(var(--main-light-size) - 16px);
+  border: 1px solid var(--color-black-50);
+  background: var(--color-blue);
+  border-radius: 100%;
+}
+
+header .main-light .main-light-inner:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 8px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 100%;
+  opacity: 0.5;
+}
+
+header .main-light .main-light-inner:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 32px;
+  left: 10px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 100%;
+  opacity: 0.3;
+}
+
+header .mini-lights {
+  display: flex;
+}
+
+header .mini-lights span {
+  position: relative;
+  width: var(--mini-light-size);
+  height: var(--mini-light-size);
+  margin-right: 0.4em;
+  background: white;
+  border-radius: 100%;
+  border: 1px solid var(--color-black-75);
+  box-shadow: 1px 5px 2px rgba(0,0,0,0.1);
+}
+
+header .mini-lights span:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 1px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 100%;
+  opacity: 0.4;
+}
+
+header .mini-lights span:nth-child(1) {
+  background: var(--color-darkred);
+}
+
+header .mini-lights span:nth-child(2) {
+  background: var(--color-yellow);
+}
+
+header .mini-lights span:nth-child(3) {
+  background: var(--color-green);
+}
+
+/* ---
+  Content
+*/
+
+#main-content {
+  padding: 6em 6em 4em;
+  text-align: center;
+}
+
+#main-content .card {
+  margin: 1em auto;
+  padding: 2em;
+  background: white;
+  border: 1px solid var(--color-black-25);
+  border-radius: 8px;
+  box-shadow: 10px 10px 0px black;
+}
+
+#main-content .card .poke-img {
+    max-width: 400px;
+    display: inline-block;
+    margin: 2em;
+}
+
+/* ---
+  Footer
+*/
+
+footer {
+  color: white;
+  text-align: center;
+  background: var(--color-medred);
+  border-top: 1px solid var(--color-black-50);
+}
+
+footer p {
+  color: white;
+  opacity: 0.75;
+}
