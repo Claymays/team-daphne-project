@@ -22,7 +22,7 @@
             <br>
             <!-- Pokedex entry -->
             <p>
-                "This Tiny Turtle Pokémon draws its long neck into its shell to launch incredible Water attacks with amazing range and accuracy. The blasts can be quite powerful."
+                "This Tiny Turtle Pokemon draws its long neck into its shell to launch incredible Water attacks with amazing range and accuracy. The blasts can be quite powerful."
             </p>
 
             <p> - The Official Pokedex Entry</p>
