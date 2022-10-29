@@ -18,7 +18,7 @@
             <h1>Pokemon #004</h1>
             <!-- Pokemon name and picture -->
             <h2>Charmander, The lizard Pokemon</h2>
-            <img src="images/charmander.jpg" alt="Charmander smiling">
+            <img src="images/charmander.png" alt="Charmander smiling">
             <br>
             <!-- Pokedex entry -->
             <p>
