@@ -33,9 +33,15 @@ Presentation Outline
 # Erick's information
 **Demonstrate / screenshot how the jsp gets translated:**
 
-    need to do... waiting on code...
+    A JSP file gets compiled whenever the browser requests it. Specifically in two cases: the JSP was never compiled or was modified recently. The following screenshots were taken in the tomcat/work/Catalina/localhost/java112/org/apache/jsp/ directory.
 
-**Expalin best practices:**
+**Screenshot of header parsed within the servlet (highlighted)**
+![the header of our mini project parsed within the servlet](parse-header.png)
+
+**Screenshot of footer parsed within the servlet (highlighted)**
+![the footer of our mini project parsed within the servlet](parse-footer.png)
+
+**Explain best practices:**
 
     A good practice is to keep dynamic (changing) parts of a website in seperate files. Then include them in the main file. It makes it easier to make changes to a website if content is in a seperate file.
 
