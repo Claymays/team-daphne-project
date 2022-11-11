@@ -14,9 +14,8 @@ public class PokemonRepository {
         try {
             setDatabase();
             Statement createTables = database.createStatement();
-            createTables.execute("CREATE TABLE POKEMON(ID INT PRIMARY KEY AUTO_INCREMENT, " +
-                                    "NAME VARCHAR(255), TYPE VARCHAR(255)), " +
-                                    "BLURB VARCHAR(255), POKEDEX_ENTRY INT");
+            createTables.execute("CREATE TABLE POKEMON(NAME VARCHAR(255), TYPE VARCHAR(255) " +
+                    ", BLURB VARCHAR(255), POKEDEX_ENTRY INT)");
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(PokemonRepository.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -44,7 +43,6 @@ public class PokemonRepository {
         List<Pokemon> entries = new ArrayList<>();
         try {
             Statement query = database.createStatement();
-
             ResultSet rs = query.executeQuery("SELECT * FROM POKEMON");
             while (rs.next()) {
                 entries.add(new Pokemon(rs.getString("name"),
