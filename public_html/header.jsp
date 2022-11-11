@@ -13,7 +13,7 @@
   </div>
 
   <div class="title">
-    <h1>PokeDex</h>
+    <h1>PokeDex</h1>
   </div>
 
   <svg width="363" height="60" viewBox="0 0 363 60" fill="none" xmlns="http://www.w3.org/2000/svg">

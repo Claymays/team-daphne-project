@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon 001 | Charmander</title>
-    <link href="pokemon.css" rel="stylesheet" type="text/css"/>
-</head>
+
 
 <body>
     <!-- Main header -->
@@ -15,9 +9,9 @@
 
     <section id="main-content">
         <div class="card">
-            <h1>Pokemon #004</h1>
-            <!-- Pokemon name and picture -->
-            <h2>Charmander, The lizard Pokemon</h2>
+            <h1>models.Pokemon #004</h1>
+            <!-- models.Pokemon name and picture -->
+            <h2>Charmander, The lizard models.Pokemon</h2>
             <img src="images/charmander.png" alt="Charmander smiling">
             <br>
             <!-- Pokedex entry -->

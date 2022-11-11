@@ -3,7 +3,7 @@
   <property name="project_home" value="${user.dir}" />
   <property name="tomcat" value="${user_home}/tomcat" />
   <property name="src" value="src"/>
-  <property name="pokedex" value="${src}/pokedex" />
+  <property name="controllers" value="${src}/controllers" />
   <property name="config" value="config"/>
   <property name="build" value="build"/>
   <property name="dist" value="dist"/>
@@ -52,7 +52,7 @@
            destdir="${web_classes}"
            classpathref="classpath"
            verbose="false"
-           includes="pokedex/**"
+           includes="controllers/**, models/**, repositories/**"
            excludes="*.jsp,
                 *.html,
                 *.xml,
@@ -99,7 +99,7 @@
   </target>
 
   <target name="dist" depends="build_web">
-    <war warfile="${dist}/pokedex.war"
+    <war warfile="${dist}/controllers.war"
          webxml="${config}/web.xml"
          basedir="${build}">
     </war>
@@ -128,7 +128,7 @@
     </jar>
   </target>
   <target name="deploy" depends="dist">
-    <copy file="${dist}/pokedex.war" todir="${tomcat}/webapps"/>
+    <copy file="${dist}/controllers.war" todir="${tomcat}/webapps"/>
   </target>
 
   <!--########################################################################
