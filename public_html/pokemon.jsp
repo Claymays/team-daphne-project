@@ -8,6 +8,9 @@
 <%@ include file="header.jsp" %>
 
 <section id="main-content">
+
+    <h1>Catch more Pokemon at the <a href="pokemonSafariZone.jsp">Safari Zone!</a></h1>
+
     <div class="card">
         <h1>Pokemon #${pokemon.entryNumber}</h1>
         <!-- Pokemon name and picture -->
