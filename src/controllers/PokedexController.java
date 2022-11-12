@@ -24,7 +24,7 @@ public class PokedexController extends HttpServlet {
         // instantiate the pokemon
         addPokemonToDatabase(pokemonQuery);
         // set request attribute with "pokemon" as the key, and the pokemon's db entry as the value
-        request.setAttribute("pokemon", knownPokemon.get(pokemonQuery));
+        request.setAttribute("pokemon", knownPokemon.get(0));
         // forward request and response to display page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./pokedex");
         dispatcher.forward(request, response);
