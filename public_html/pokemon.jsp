@@ -9,10 +9,10 @@
 
 <section id="main-content">
     <div class="card">
-        <h1>Pokemon #${pokemon.pokedexEntry}</h1>
+        <h1>Pokemon #${pokemon.entryNumber}</h1>
         <!-- Pokemon name and picture -->
         <h2>${pokemon.name}</h2>
-        <img src="images/${pokemon.image}" alt="
+        <img src="images/${pokemon.name}.png" alt="
         <%--TODO: Figure out the alt!--%>
         " class="poke-img">
         <br>
