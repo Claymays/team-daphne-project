@@ -8,10 +8,13 @@
 <%@ include file="header.jsp" %>
 
 <section id="main-content">
+
+    <h1>Catch more Pokemon at the <a href="pokemonSafariZone.jsp">Safari Zone!</a></h1>
+
     <div class="card">
         <h1>Pokemon #${pokemon.pokedexEntry}</h1>
         <!-- Pokemon name and picture -->
-        <h2>${pokemon.name}</h2>
+        <h2>${pokemonName.name}</h2>
         <img src="images/${pokemon.image}" alt="
         <%--TODO: Figure out the alt!--%>
         " class="poke-img">
