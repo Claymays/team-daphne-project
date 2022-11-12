@@ -16,73 +16,17 @@ import java.util.List;
 )
 public class PokedexController extends HttpServlet {
     private PokemonRepository repository;
-    private List<Pokemon> knownPokemon;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // from the safari jsp, get the query string from the request made on the page
-        String pokemonQuery = request.getParameter("pokemon");
-        log(pokemonQuery);
-        // instantiate the pokemon
-        addPokemonToDatabase(pokemonQuery);
-
-        // set request attribute with "pokemon" as the key, and the pokemon's db entry as the value
-        request.setAttribute("pokemon", knownPokemon.get(0));
-
-        // forward request and response to display page
-        String url = "/pokemon.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        List<Pokemon> foundPokemon = repository.getFoundPokemon();
+        // attach pokemon collection to model, and forward request and response to display page
+        request.setAttribute("pokemon", foundPokemon);
+        String url = "/pokedex.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 
     public void init() {
-        this.repository = new PokemonRepository();
-        // repository.pokedexEntry("Bulbasaur", "grass", "a bio", 001);
-        this.knownPokemon = repository.getPokedexEntries();
-    }
-
-    /**
-     * addPokemonToDatabase method
-     * This method will instantiate a pokemon bean and populate it with data.
-     * @param pokemonName The name of the pokemon.
-    */
-    public void addPokemonToDatabase(String pokemonName) {
-        // method variables
-        String bio;
-        String type;
-        int entryNumber;
-        // check which pokemon was requested
-        // bulbasaur
-        if (pokemonName == "bulbasaur") {
-            // short bio
-            bio = "A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokemon.";
-            // type
-            type = "grass";
-            // entry number
-            entryNumber = 001;
-            // add pokemon to database
-            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
-        }
-        // squirtle
-        if (pokemonName == "squirtle") {
-            // short bio
-            bio = "When it retracts its long neck into its shell, it squirts out water with vigorous force.";
-            // type
-            type = "water";
-            // entry number
-            entryNumber = 003;
-            // add pokemon to database
-            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
-        }
-        // charmander
-        if (pokemonName == "charmander") {
-            // short bio
-            bio = "A flame burns on the tip of its tail from birth. It is said that a Charmander dies if its flame ever goes out.";
-            // type
-            type = "fire";
-            // entry number
-            entryNumber = 006;
-            // add pokemon to database
-            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
-        }
+        this.repository = PokemonRepository.getInstance();
     }
 }
