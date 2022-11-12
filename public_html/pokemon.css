@@ -229,6 +229,46 @@ header .mini-lights span:nth-child(3) {
     margin: 2em;
 }
 
+
+#main-content .card .map {
+    position: relative;
+}
+
+/* ---
+  Safari Zone
+*/
+
+#safari-zone {
+  position: relative;
+  height: 600px;
+  background: url('images/safari_zone.png') no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.pokemon {
+  position: absolute;
+}
+
+.pokemon img {
+  width: 100px;
+}
+
+#squirtle {
+    top: 36%;
+    left: 46%;
+}
+
+#charmander {
+    top: 14%;
+    left: 75%;
+}
+
+#bulbasaur {
+    top: 70%;
+    left: 17%;
+}
+
 /* ---
   Footer
 */
