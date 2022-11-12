@@ -14,8 +14,8 @@
     <div class="card">
         <h1>Pokemon #${pokemon.entryNumber}</h1>
         <!-- Pokemon name and picture -->
-        <h2>${pokemonName.name}</h2>
-        <%--img src="images/${pokemon.image}" alt="" class="poke-img"--%>
+        <h2>${pokemon.name}</h2>
+        <img src="images/${pokemon.name}.png" alt="" class="poke-img">
         <%--TODO: Figure out the alt!--%>
         <br>
         <!-- Pokedex entry -->
