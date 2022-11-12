@@ -39,6 +39,7 @@
             let { target: { id }} = event;
             input.value = id;
 
+            // need to change "test" to "pokedex"
             window.location = `/controllers/test?pokemon=`+ id;
         }
     </script>
