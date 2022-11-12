@@ -248,10 +248,9 @@ header .mini-lights span:nth-child(3) {
 
 .pokemon {
   position: absolute;
-}
-
-.pokemon img {
+  display: inline-block;
   width: 100px;
+  cursor: pointer;
 }
 
 #squirtle {
