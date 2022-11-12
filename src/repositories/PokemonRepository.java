@@ -15,7 +15,7 @@ public class PokemonRepository {
             setDatabase();
             Statement createTables = database.createStatement();
             createTables.execute("CREATE TABLE POKEMON(NAME VARCHAR(255), TYPE VARCHAR(255) " +
-                    ", BLURB VARCHAR(255), POKEDEX_ENTRY INT)");
+                    ", BIO VARCHAR(255), POKEDEX_ENTRY INT)");
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(PokemonRepository.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -30,10 +30,10 @@ public class PokemonRepository {
         database = DriverManager.getConnection("jdbc:h2:mem:");
     }
 
-    public void pokedexEntry(String name, String type, String blurb, int entryNumber) {
+    public void pokedexEntry(String name, String type, String bio, int entryNumber) {
         try {
             Statement entry = database.createStatement();
-            entry.execute(String.format("INSERT INTO POKEMON (NAME, TYPE, BLURB, POKEDEX_ENTRY) VALUES (%s, %s, %s, %d)", name, type, blurb, entryNumber));
+            entry.execute(String.format("INSERT INTO POKEMON (NAME, TYPE, BIO, POKEDEX_ENTRY) VALUES (%s, %s, %s, %d)", name, type, bio, entryNumber));
         } catch(SQLException exception) {
 
         }
@@ -46,7 +46,7 @@ public class PokemonRepository {
             ResultSet rs = query.executeQuery("SELECT * FROM POKEMON");
             while (rs.next()) {
                 entries.add(new Pokemon(rs.getString("name"),
-                        rs.getString("type"), rs.getString("blurb"),
+                        rs.getString("type"), rs.getString("bio"),
                         rs.getInt("pokedex_entry")));
             }
         } catch(SQLException exception) {

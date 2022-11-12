@@ -36,7 +36,7 @@ public class PokedexController extends HttpServlet {
 
     public void init() {
         this.repository = new PokemonRepository();
-        // repository.pokedexEntry("Bulbasaur", "grass", "a blurb", 001);
+        // repository.pokedexEntry("Bulbasaur", "grass", "a bio", 001);
         this.knownPokemon = repository.getPokedexEntries();
     }
 

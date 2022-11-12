@@ -21,7 +21,7 @@
         <br>
         <!-- Pokedex entry -->
         <p>
-            ${pokemon.blurb}
+            ${pokemon.bio}
         </p>
         <!-- Description -->
         <p> - The Official Pokedex Entry</p>
