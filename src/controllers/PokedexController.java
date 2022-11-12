@@ -19,26 +19,30 @@ public class PokedexController extends HttpServlet {
     private List<Pokemon> knownPokemon;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        TODO: how to handle delegation?
         // from the safari jsp, get the query string from the request made on the page
         String pokemonQuery = request.getQueryString();
         // add pokemonQuery to knownPokemon
         knownPokemon.add(pokemonQuery);
         // instantiate the pokemon
-        instantiatePokemon(pokemonQuery);
-        //
-        request.setAttribute("pokemon", knownPokemon.get(0));
+        addPokemonToDatabase(pokemonQuery);
+        // set request attribute with "pokemon" as the key, and the pokemon's name as the value
+        request.setAttribute("pokemon", knownPokemon.get(pokemonQuery));
+        // forward request and response to display page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./pokedex");
         dispatcher.forward(request, response);
     }
 
     public void init() {
         this.repository = new PokemonRepository();
-        repository.pokedexEntry("Bulbasaur", "grass", "a blurb", 001);
+        // repository.pokedexEntry("Bulbasaur", "grass", "a blurb", 001);
         this.knownPokemon = repository.getPokedexEntries();
     }
-    
-    public void instantiatePokemon(String pokemonName) {
+    /** 
+     * addPokemonToDatabase method
+     * This method will instantiate a pokemon bean and populate it with data.
+     * @param pokemonName The name of the pokemon.
+    */
+    public void addPokemonToDatabase(String pokemonName) {
         // method variables
         String bio;
         String type;
@@ -52,10 +56,8 @@ public class PokedexController extends HttpServlet {
             type = "grass";
             // entry number
             entryNumber = 001;
-            // create bean for the pokemon
-            Pokemon bulbasaur = new Pokemon(pokemonName, type, bio, entryNumber);
-            // add data to bean
-            bulbasaur.setData(pokemonName, type, bio, entryNumber);
+            // add pokemon to database
+            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
         }
         // squirtle
         if (pokemonName == "squirtle") {
@@ -65,10 +67,8 @@ public class PokedexController extends HttpServlet {
             type = "water";
             // entry number
             entryNumber = 003;
-            // create bean for the pokemon
-            Pokemon squirtle = new Pokemon();
-            // add data to bean
-            squirtle.setData(pokemonName, type, bio, entryNumber);
+            // add pokemon to database
+            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
         }
         // charmander
         if (pokemonName == "charmander") {
@@ -78,10 +78,8 @@ public class PokedexController extends HttpServlet {
             type = "fire";
             // entry number
             entryNumber = 006;
-            // create bean for the pokemon
-            Pokemon charmander = new Pokemon();
-            // add data to bean
-            charmander.setData(pokemonName, type, bio, entryNumber);
+            // add pokemon to database
+            repository.pokedexEntry(pokemonName, type, bio, entryNumber);
         }
     }
 }
