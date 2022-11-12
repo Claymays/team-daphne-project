@@ -55,18 +55,4 @@ public class Pokemon {
     public void setEntryNumber(int entryNumber) {
         this.entryNumber = entryNumber;
     }
-    /**
-     * setData
-     * Sets all the data for the class.
-     * @param name The name of the pokemon
-     * @param type The type of the pokemon
-     * @param blurb The bio of the pokemon
-     * @param entryNumber The entry number of the pokemon
-    */
-    public void setData(String name, String type, String blurb, int entryNumber) {
-        this.name = name;
-        this.type = type;
-        this.blurb = blurb;
-        this.entryNumber = entryNumber;
-    }
 }
