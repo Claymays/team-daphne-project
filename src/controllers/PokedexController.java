@@ -20,13 +20,17 @@ public class PokedexController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // from the safari jsp, get the query string from the request made on the page
-        String pokemonQuery = request.getQueryString();
+        String pokemonQuery = request.getParameter("pokemon");
+        log(pokemonQuery);
         // instantiate the pokemon
         addPokemonToDatabase(pokemonQuery);
+
         // set request attribute with "pokemon" as the key, and the pokemon's db entry as the value
         request.setAttribute("pokemon", knownPokemon.get(0));
+
         // forward request and response to display page
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./pokedex");
+        String url = "/pokemon.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 
@@ -35,7 +39,8 @@ public class PokedexController extends HttpServlet {
         // repository.pokedexEntry("Bulbasaur", "grass", "a blurb", 001);
         this.knownPokemon = repository.getPokedexEntries();
     }
-    /** 
+
+    /**
      * addPokemonToDatabase method
      * This method will instantiate a pokemon bean and populate it with data.
      * @param pokemonName The name of the pokemon.
