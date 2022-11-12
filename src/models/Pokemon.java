@@ -4,15 +4,15 @@ public class Pokemon {
     private int id;
     private String name;
     private String type;
-    private String blurb;
+    private String bio;
     private int entryNumber;
 
     public Pokemon() {}
 
-    public Pokemon(String name, String type, String blurb, int entryNumber) {
+    public Pokemon(String name, String type, String bio, int entryNumber) {
         this.name = name;
         this.type = type;
-        this.blurb = blurb;
+        this.bio = bio;
         this.entryNumber = entryNumber;
     }
 
@@ -40,12 +40,12 @@ public class Pokemon {
         this.type = type;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getBio() {
+        return bio;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public int getEntryNumber() {
