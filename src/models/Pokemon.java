@@ -1,27 +1,20 @@
 package models;
 
 public class Pokemon {
-    private int id;
     private String name;
     private String type;
     private String bio;
-    private int entryNumber;
+    private String entryNumber;
+    private boolean found;
 
     public Pokemon() {}
 
-    public Pokemon(String name, String type, String bio, int entryNumber) {
+    public Pokemon(String name, String type, String bio, String entryNumber) {
         this.name = name;
         this.type = type;
         this.bio = bio;
         this.entryNumber = entryNumber;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.found = false;
     }
 
     public String getName() {
@@ -48,11 +41,19 @@ public class Pokemon {
         this.bio = bio;
     }
 
-    public int getEntryNumber() {
+    public String getEntryNumber() {
         return entryNumber;
     }
 
-    public void setEntryNumber(int entryNumber) {
+    public void setEntryNumber(String entryNumber) {
         this.entryNumber = entryNumber;
+    }
+
+    public boolean isFound() {
+        return found;
+    }
+
+    public void setFound(boolean found) {
+        this.found = found;
     }
 }

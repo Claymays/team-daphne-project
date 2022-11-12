@@ -14,7 +14,7 @@
   <property name="web_lib" value="${WEB-INF}/lib"/>
   <property name="build.compiler" value="modern"/>
   <property name="static" value="public_html" />
-  <property name="pokedex_lib" value="${project_home}/lib/pokedex.jar" />
+  <property name="pokedex_lib" value="${project_home}/lib/jstl-1.2.jar" />
   <property name="junit" value="${project_home}/lib/junit.jar" />
   <property name="hamcrest" value="${project_home}/lib/hamcrest.jar" />
   <property name="java_hamcrest" value="${project_home}/lib/java-hamcrest.jar" />

@@ -8,20 +8,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(
-        name = "pokedex",
-        urlPatterns = { "/pokedex", "/home" }
+        name = "pokemon",
+        urlPatterns = { "/pokemon" }
 )
-public class PokedexController extends HttpServlet {
+public class PokemonController extends HttpServlet {
     private PokemonRepository repository;
 
+    // Handles all requests to view any individual pokemon.
+    // Pulls the pokemon's name from the request params
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Pokemon> foundPokemon = repository.getFoundPokemon();
-        // attach pokemon collection to model, and forward request and response to display page
-        request.setAttribute("pokemon", foundPokemon);
-        String url = "/pokedex.jsp";
+        String pokemonName = request.getParameter("pokemon");
+        Pokemon pokemon = repository.getPokemon(pokemonName);
+        pokemon.setFound(true);
+        // set request attribute with "pokemon" as the key, and the pokemon object as the value
+        request.setAttribute("pokemon", pokemon);
+
+        // forward request and response to display page
+        String url = "/pokemon.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

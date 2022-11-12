@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@ include file="head-tag.jsp"%>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="pokemon.css" rel="stylesheet" type="text/css"/>
+</head>
 
 <body>
     <!-- Main header -->
@@ -17,7 +24,7 @@
             <h1>Pokedex Entries: </h1>
             <c:forEach items="${pokemon}" var="entry">
                 <h2>${entry.type}-type</h2>
-                <a href="/${entry.name}">: ${entry.name}</a>
+                <a href="pokemon?pokemon=${entry.name}"> ${entry.entryNumber}: ${entry.name}</a>
             </c:forEach>
         </div>
     </section>

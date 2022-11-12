@@ -1,57 +1,83 @@
 package repositories;
 
 import models.Pokemon;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
+import java.util.*;
 
 public class PokemonRepository {
-    private Connection database;
+    private Map<String, Pokemon> knownPokemon;
+    private static PokemonRepository instance;
 
-    public PokemonRepository() {
-        try {
-            setDatabase();
-            Statement createTables = database.createStatement();
-            createTables.execute("CREATE TABLE POKEMON(NAME VARCHAR(255), TYPE VARCHAR(255) " +
-                    ", BIO VARCHAR(255), POKEDEX_ENTRY INT)");
-        } catch (SQLException ex) {
-            Logger lgr = Logger.getLogger(PokemonRepository.class.getName());
-            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    // Instantiates the repo with hard-coded values.
+    private PokemonRepository() {
+        this.knownPokemon = new HashMap<>();
+
+        // bulbasaur
+
+        String pokemonName = "bulbasaur";
+        String bio = "A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokemon.";
+        // type
+        String type = "grass";
+        // entry number
+        String entryNumber = "001";
+        // add pokemon to database
+        knownPokemon.put(pokemonName, new Pokemon(pokemonName, type, bio, entryNumber));
+
+        // squirtle
+        // short bio
+        pokemonName = "squirtle";
+        bio = "When it retracts its long neck into its shell, it squirts out water with vigorous force.";
+        // type
+        type = "water";
+        // entry number
+        entryNumber = "003";
+        // add pokemon to database
+        knownPokemon.put(pokemonName, new Pokemon(pokemonName, type, bio, entryNumber));
+
+        // charmander
+        pokemonName = "charmander";
+        // short bio
+        bio = "A flame burns on the tip of its tail from birth. It is said that a Charmander dies if its flame ever goes out.";
+        // type
+        type = "fire";
+        // entry number
+        entryNumber = "006";
+        // add pokemon to database
+        knownPokemon.put(pokemonName, new Pokemon(pokemonName, type, bio, entryNumber));
+    }
+
+    public Map<String, Pokemon> getKnownPokemon() {
+        return knownPokemon;
+    }
+
+    public void setKnownPokemon(Map<String, Pokemon> knownPokemon) {
+        this.knownPokemon = knownPokemon;
+    }
+
+    // A way to ensure only one instance is creating for the entire app
+    public static PokemonRepository getInstance() {
+        if (instance == null) {
+            instance = new PokemonRepository();
         }
+        return instance;
     }
 
-    public Connection getDatabase() {
-        return database;
+    public void pokedexEntry(String name, String type, String bio, String entryNumber) {
+       knownPokemon.put(name, new Pokemon(name, type, bio, entryNumber));
     }
 
-    public void setDatabase() throws SQLException {
-        database = DriverManager.getConnection("jdbc:h2:mem:");
+    public Pokemon getPokemon(String name) {
+        return knownPokemon.get(name);
     }
 
-    public void pokedexEntry(String name, String type, String bio, int entryNumber) {
-        try {
-            Statement entry = database.createStatement();
-            entry.execute(String.format("INSERT INTO POKEMON (NAME, TYPE, BIO, POKEDEX_ENTRY) VALUES (%s, %s, %s, %d)", name, type, bio, entryNumber));
-        } catch(SQLException exception) {
-
-        }
-    }
-
-    public List<Pokemon> getPokedexEntries() {
-        List<Pokemon> entries = new ArrayList<>();
-        try {
-            Statement query = database.createStatement();
-            ResultSet rs = query.executeQuery("SELECT * FROM POKEMON");
-            while (rs.next()) {
-                entries.add(new Pokemon(rs.getString("name"),
-                        rs.getString("type"), rs.getString("bio"),
-                        rs.getInt("pokedex_entry")));
+    // Iterates through the map, returning only those that have been found
+    public List<Pokemon> getFoundPokemon() {
+        List<Pokemon> foundPokemon = new ArrayList<>();
+        for (Pokemon pokemon : knownPokemon.values()) {
+            if (pokemon.isFound()) {
+                foundPokemon.add(pokemon);
             }
-        } catch(SQLException exception) {
-
         }
-        return entries;
+        return foundPokemon;
     }
 }
