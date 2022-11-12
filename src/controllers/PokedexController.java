@@ -21,11 +21,9 @@ public class PokedexController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // from the safari jsp, get the query string from the request made on the page
         String pokemonQuery = request.getQueryString();
-        // add pokemonQuery to knownPokemon
-        knownPokemon.add(pokemonQuery);
         // instantiate the pokemon
         addPokemonToDatabase(pokemonQuery);
-        // set request attribute with "pokemon" as the key, and the pokemon's name as the value
+        // set request attribute with "pokemon" as the key, and the pokemon's db entry as the value
         request.setAttribute("pokemon", knownPokemon.get(pokemonQuery));
         // forward request and response to display page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./pokedex");
