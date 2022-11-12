@@ -12,12 +12,11 @@
     <h1>Catch more Pokemon at the <a href="pokemonSafariZone.jsp">Safari Zone!</a></h1>
 
     <div class="card">
-        <h1>Pokemon #${pokemon.pokedexEntry}</h1>
+        <h1>Pokemon #${pokemon.entryNumber}</h1>
         <!-- Pokemon name and picture -->
         <h2>${pokemonName.name}</h2>
-        <img src="images/${pokemon.image}" alt="
+        <%--img src="images/${pokemon.image}" alt="" class="poke-img"--%>
         <%--TODO: Figure out the alt!--%>
-        " class="poke-img">
         <br>
         <!-- Pokedex entry -->
         <p>
