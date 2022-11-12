@@ -52,8 +52,10 @@ public class PokedexController extends HttpServlet {
             type = "grass";
             // entry number
             entryNumber = 001;
-            // create pokemon class for bulbasaur
+            // create bean for the pokemon
             Pokemon bulbasaur = new Pokemon(pokemonName, type, bio, entryNumber);
+            // add data to bean
+            bulbasaur.setData(pokemonName, type, bio, entryNumber);
         }
         // squirtle
         if (pokemonName == "squirtle") {
@@ -63,8 +65,10 @@ public class PokedexController extends HttpServlet {
             type = "water";
             // entry number
             entryNumber = 003;
-            // create pokemon class for squirtle
-            Pokemon squirtle = new Pokemon(pokemonName, type, bio, entryNumber);
+            // create bean for the pokemon
+            Pokemon squirtle = new Pokemon();
+            // add data to bean
+            squirtle.setData(pokemonName, type, bio, entryNumber);
         }
         // charmander
         if (pokemonName == "charmander") {
@@ -74,8 +78,10 @@ public class PokedexController extends HttpServlet {
             type = "fire";
             // entry number
             entryNumber = 006;
-            // create pokemon class for charmander
-            Pokemon charmander = new Pokemon(pokemonName, type, bio, entryNumber);
+            // create bean for the pokemon
+            Pokemon charmander = new Pokemon();
+            // add data to bean
+            charmander.setData(pokemonName, type, bio, entryNumber);
         }
     }
 }
