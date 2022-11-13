@@ -66,7 +66,7 @@ header {
   position: relative;
   display: flex;
   align-content: center;
-  // background: linear-gradient(to bottom, var(--color-red), var(--color-medred));
+  background: linear-gradient(to bottom, var(--color-red), var(--color-medred));
   background: var(--color-medred);
   padding: 1em 2em;
   border-bottom: 2px solid var(--color-black-25);
@@ -285,3 +285,21 @@ footer p {
   color: white;
   opacity: 0.75;
 }
+
+/* ---
+  Table
+*/
+
+table {
+  width: 100%;
+  border-collapse: seperate;
+}
+
+th {
+  padding: 0.5em;
+}
+
+td {
+  padding: 0.5em;
+}
+

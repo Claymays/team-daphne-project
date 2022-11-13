@@ -27,6 +27,30 @@
                 <a href="pokemon?pokemon=${entry.name}"> ${entry.entryNumber}: ${entry.name}</a>
             </c:forEach>
         </div>
+        <br>
+        <br>
+        <div class="card">
+            <h1>Pokedex detailed summary: </h1>
+            <c:forEach items="${pokemon}" var="entry">
+                <%-- begin table --%>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Bio</th>
+                        <th>Entry number</th>
+                        <th>Found</th>
+                    </tr>
+                    <tr>
+                        <td>${entry.name}</td>
+                        <td>${entry.type}</td>
+                        <td>${entry.bio}</td>
+                        <td>${entry.entryNumber}</td>
+                        <td>${entry.found}</td>
+                    </tr>
+                </table>
+            </c:forEach>
+        </div>
     </section>
 
     <!-- Footer -->

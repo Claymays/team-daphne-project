@@ -10,7 +10,7 @@ public class PokemonRepository {
 
     // Instantiates the repo with hard-coded values.
     private PokemonRepository() {
-        this.knownPokemon = new HashMap<>();
+        this.knownPokemon = new TreeMap<>();
 
         // bulbasaur
 
