@@ -241,6 +241,8 @@ header .mini-lights span:nth-child(3) {
 #safari-zone {
   position: relative;
   height: 600px;
+  width: 890px;
+  margin: 0 auto;
   background: url('images/safari_zone.png') no-repeat;
   background-size: cover;
   border-radius: 8px;
