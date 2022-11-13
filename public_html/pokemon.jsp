@@ -15,7 +15,7 @@
         <h1>Pokemon #${pokemon.entryNumber}</h1>
         <!-- Pokemon name and picture -->
         <h2>${pokemon.name}</h2>
-        <img src="images/${pokemon.name}.png" alt="" class="poke-img">
+        <img src="images/${pokemon.name}.png" alt="One of the three starter pokemons from gen 1" class="poke-img">
         <%--TODO: Figure out the alt!--%>
         <br>
         <!-- Pokedex entry -->
