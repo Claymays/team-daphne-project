@@ -292,7 +292,7 @@ footer p {
 
 table {
   width: 100%;
-  border-collapse: seperate;
+  border-collapse: collapse;
 }
 
 th {
@@ -300,6 +300,6 @@ th {
 }
 
 td {
-  padding: 0.5em;
+  padding-bottom: 2em;
 }
 
